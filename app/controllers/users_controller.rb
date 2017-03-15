@@ -18,6 +18,20 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Updated your Pofile"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+  
   private
   
   def correct_user
@@ -26,6 +40,6 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.reqire(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
   end
 end

@@ -1,0 +1,10 @@
+<% @user.followed_users.each do |user| %>
+<table>
+  <tr>
+    <th><%= gravatar_for @user %></th>
+    <td>  <%= user.name %> </td>
+    <td><%= link_to '詳細', user_path(user) %></td>
+    <br>
+  </tr>
+</table>
+<% end %>

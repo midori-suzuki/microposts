@@ -1,0 +1,9 @@
+<% @user.favorite_microposts.each do |micropost| %>
+<table>
+  <tr>
+    <th>  <%= link_to gravatar_for(micropost.user, size:50),micropost.user %><%= micropost.user.name %> </th>
+    <td>  <%= micropost.content %> </td>
+    <br>
+  </tr>
+</table>
+<% end %>

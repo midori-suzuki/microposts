@@ -12,6 +12,8 @@ class MicropostsController < ApplicationController
     end
   end
   
+  def show 
+    @micropost = current_user.microposts
   
   def  destroy
     @micropost = current_user.microposts.find_by(id: params[:id])

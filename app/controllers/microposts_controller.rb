@@ -11,10 +11,7 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   end
-  
-  def show 
-    @micropost = current_user.microposts
-  
+
   def  destroy
     @micropost = current_user.microposts.find_by(id: params[:id])
     return redirect_to root_url if @micropost.nil?
